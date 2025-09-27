@@ -75,6 +75,7 @@ import { JournalListsComponent } from './Financial/journal-lists/journal-lists.c
 import { JournalViewComponent } from './Financial/journal-view/journal-view.component';
 import { ExpenseListComponent } from './Financial/expense-list/expense-list.component';
 import { ExpenseViewComponent } from './Financial/expense-view/expense-view.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 @NgModule({
   declarations: [
@@ -162,7 +163,8 @@ import { ExpenseViewComponent } from './Financial/expense-view/expense-view.comp
     MatDatepickerModule,
 
     MatDialogModule,
-    MatExpansionModule
+    MatExpansionModule,
+    HttpClientTestingModule
 
   ],
   providers: [
