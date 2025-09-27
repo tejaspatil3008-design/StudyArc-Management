@@ -1,4 +1,4 @@
-name: Angular CI
+name: Angular CI/CD
 
 on:
   push:
@@ -7,26 +7,40 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build-test-deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout code
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
+      # Install dependencies
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Angular
-        run: npm run build --if-present
+      # Run unit tests
+      - name: Run tests
+        run: npm run test -- --watch=false --browsers=ChromeHeadless
 
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v3
+      # Build Angular app
+      - name: Build Angular
+        run: npm run build --if-present --configuration production
+
+      # Deploy to Netlify
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2.0.0
         with:
-          name: angular-dist
-          path: dist
+          publish-dir: ./dist/data-residency
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Automated deploy from GitHub Actions"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
