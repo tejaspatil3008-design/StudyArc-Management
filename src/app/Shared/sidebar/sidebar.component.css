@@ -1,0 +1,214 @@
+/* Sidebar Image */
+.sidebar-image {
+  width: 96%;
+  height: 50px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+
+/* Default Sidebar for large screens */
+.sidenav {
+  width: 200px; /* Default width for larger screens */
+  background: linear-gradient(180deg, #d8c3b8, #cec1b7); /* Gradient background */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: width 0.3s ease;
+  position: relative; /* Ensure it's part of the document flow */
+  padding: 20px; /* Add padding for spacing */
+  border-right: 1px solid #b5a99a; /* Right border for separation */
+}
+
+/* Sidebar Title */
+.sidebar-title {
+  font-size: 1.5em; /* Larger font size for title */
+  color: #333; /* Dark color for title */
+  margin-bottom: 15px; /* Space below title */
+  text-align: center; /* Centered title */
+}
+
+/* Sidebar Content Transition */
+.sidenav-content {
+  transition: margin-left 0.3s ease;
+}
+
+/* List Item Styling */
+mat-nav-list {
+  padding: 0; /* Remove default padding */
+}
+
+mat-list-item {
+  display: flex; /* Flexbox for icon and text alignment */
+  align-items: center; /* Center items vertically */
+  padding: 10px 15px; /* Padding for list items */
+  border-radius: 5px; /* Rounded corners for list items */
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+/* Hover effect for list items */
+.matList:hover {
+  background-color: rgb(153, 155, 156);
+}
+
+/* Icon Styling */
+.blue-icon {
+  color: #ffe393; /* Set the icon color to a nice blue */
+  margin-right: 10px; /* Space between icon and text */
+  font-size: 1.5em; /* Larger icons for better visibility */
+}
+
+/* Full-width sidebar for larger screens */
+@media (min-width: 769px) {
+  .sidenav {
+    width: 200px;
+  }
+}
+
+/* Collapsed sidebar for screens 768px and below */
+@media (max-width: 768px) {
+  .sidenav {
+    width: 0; /* Hidden by default */
+    position: absolute;
+    height: 100%;
+    z-index: 2; /* Bring the sidebar above other content */
+    background-color: #f18d40; /* Background color in collapsed mode */
+  }
+
+  /* Sidebar open state for mobile screens */
+  .sidenav.open {
+    width: 60%; /* Sidebar will take 60% of the screen on mobile view */
+  }
+
+  mat-sidenav {
+    width: 240px; 
+    flex: none;
+  }
+
+  .menu-icon {
+    display: block; 
+  }
+
+  .sidenav-content {
+    margin-left: 0;
+  }
+
+  .content {
+    padding: 16px;
+    margin-top: 56px; 
+  }
+}
+
+@media (max-width: 430px) {
+  .sidenav.open {
+    width: 100%; 
+  }
+}
+
+a{
+  font-size: 14px;
+
+  color: #444249;
+}
+.mat-nav-list a:hover{
+  color: #16c3da;
+}
+
+.mat-nav-list a {
+  text-decoration: none;
+  color: white;
+}
+
+.horizontal-line {
+  width: 93%;
+  height: 2px; 
+  background-color: #dbd2b5; 
+  margin: 10px 0; 
+  margin-top: -11px;
+  margin-left: 7px;
+}
+
+@media (max-width: 768px) {
+  .horizontal-line {
+    height: 1px; 
+  }
+
+
+  
+}
+.horizontals-line {
+  width: 100%;
+  height: 2px;
+  background-color: #838282;
+  margin: 0px 0;
+  margin-top: -3px
+}
+
+@media (max-width: 768px) {
+  .horizontals-line {
+    height: 1px; 
+  }
+}
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Make the sidebar take full height of the viewport */
+  overflow: hidden; /* Prevent scrolling of the whole sidebar */
+}
+
+
+
+.scrollable-section {
+  flex-grow: 1;
+  overflow-y: auto; /* Enable scrolling for the mat-nav-list */
+}
+
+
+
+
+
+.matList {
+  display: flex;
+  align-items: center;
+}
+
+
+/* Entity Master Expansion Panel */
+.mat-expansion-panel {
+  background-color: transparent; /* Make panel background consistent */
+  border: none; /* Remove borders */
+  box-shadow: none; /* Remove shadows */
+}
+
+.mat-expansion-panel-header {
+  padding: 10px 15px;
+  color: white; /* Consistent color with the rest of the sidebar */
+}
+
+.mat-expansion-panel-header:hover {
+  background-color: rgb(153, 155, 156); /* Consistent hover effect */
+}
+
+.mat-expansion-panel-body {
+  padding-left: none;
+}
+
+.mat-expansion-panel-body .mat-list-item {
+  padding-left: 10px; /* Slight indentation for sub-items */
+}
+/* Change the description text and indicator arrow color to white */
+.mat-expansion-panel-header-description {
+  color: #fff; /* Set the text color for the description to white */
+}
+
+.mat-expansion-indicator::after {
+  color: #fff; /* Set the color for the up/down icon (arrow) to white */
+}
+::ng-deep .mat-expansion-panel-header .mat-expansion-indicator {
+  color: #fff !important; /* This will make the arrow white */
+}
+.mat-menu-content:not {
+    padding-top: 6px;
+    padding-bottom: 8px;
+    width: 147px;
+}

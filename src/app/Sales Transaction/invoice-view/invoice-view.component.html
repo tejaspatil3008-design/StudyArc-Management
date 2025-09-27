@@ -1,0 +1,94 @@
+<div class="card">
+    <div class="header-row">
+        <button (click)="goBack()" class="back-button">Back</button>
+        <div class="card-header" style="margin-top: -10px;">Invoice Information</div>
+        <button class="button-common cross-button" (click)="redirectToHome()" (mouseover)="showRefreshText()"
+            (mouseout)="hideRefreshText()" (click)="refreshPage()">
+            <img src="assets/Cross-icon.png" alt="Close" />
+            <span *ngIf="isHovered" class="refresh-text">Close</span>
+        </button>
+        <button class="button-common refresh-button" (mouseover)="showRefreshText()" (mouseout)="hideRefreshText()"
+            (click)="refreshPage()">
+            <img id="refresh-icon" src="assets/Refrsh-icon.png" alt="Refresh" />
+            <span *ngIf="isHovered" class="refresh-text">Refresh</span>
+        </button>
+    </div>
+    <div class="mb-2" style="background-color: #f3bd6d; height: 3px;"></div>
+    <div class="card-body">
+
+        <p style="background-color: #c1c9cd;color:#534d4d">
+            <span style="margin-left: 10px;font-weight: bold;font-size: 14px;">Basic Information</span>
+        </p>
+
+        <div class="row" style="margin-left: 10px;">
+            <div *ngFor="let key of keys.slice(0, 12)" class="col-md-3">
+                <div class="form-group">
+                    <label>{{ key }}</label>
+                    <input type="text" class="form-control" [value]="selectedItem[key]" readonly>
+                </div>
+            </div>
+        </div>
+        <p style="background-color: #c1c9cd;color:#534d4d">
+            <span style="margin-left: 10px;font-weight: bold;font-size: 14px;">Classification</span>
+        </p>
+
+        <div class="row" style="margin-left: 10px;">
+            <div *ngFor="let key of keys.slice(12,25)" class="col-md-3">
+                <div class="form-group">
+                    <label>{{ key }}</label>
+                    <input type="text" class="form-control" [value]="selectedItem[key]" readonly>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" style="margin-left: 10px;">
+            <p style="background-color: #c1c9cd;color:#534d4d;margin-top: 10px;margin-left: -10px; line-height: 20px;">
+                <a href="#" (click)="toggleVisibility('item', $event)" [ngClass]="{'active': isItemTableVisible}"
+                    style="margin-left: 10px;font-size: 14px;">Item </a>
+                <!-- <a href="#" (click)="toggleVisibility('payment', $event)" [ngClass]="{'active': isPaymentTableVisible}"
+                    style="margin-left: 10px;font-size: 14px;">Related Records</a> -->
+            </p>
+            <div *ngIf="isItemTableVisible" class="table-container">
+                <div class="scrollable-container">
+                    <table class="table" style="padding: 0px;">
+                        <thead>
+                            <th style="border-right: 1px solid #8d8989;vertical-align: top;" scope="col"
+                                *ngFor="let key of invoiceKeys" (mousedown)="onMouseDown($event, $event.target)">{{key}}
+                            </th>
+                            <div class="resize-handle" (mousedown)="onMouseDown($event, $event.target)"></div>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of itemResult">
+                                <td *ngFor="let key of invoiceKeys">
+                                    <input class="form-control text-center" style="pointer-events: none;" tabindex="-1"
+                                        [value]="row[key]" readonly />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div *ngIf="isPaymentTableVisible" class="table-container">
+                <div class="scrollable-container">
+                    <table class="table" style="padding: 0px;">
+                        <thead>
+                            <th style="border-right: 1px solid #8d8989;vertical-align: top;" scope="col"
+                                *ngFor="let key of paymentKeys" (mousedown)="onMouseDown($event, $event.target)">{{key}}
+                            </th>
+                            <div class="resize-handle" (mousedown)="onMouseDown($event, $event.target)"></div>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of paymentResult">
+                                <td *ngFor="let key of paymentKeys">
+                                    <input class="form-control text-center" style="pointer-events: none;" tabindex="-1"
+                                        [value]="row[key]" readonly />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

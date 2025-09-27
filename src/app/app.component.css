@@ -1,0 +1,28 @@
+.sidenav-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidenav {
+  width: 200px;
+  background-color: #354041;
+  transition: width 0.3s ease; 
+}
+
+
+
+.mat-drawer.mat-drawer-side {
+  z-index: 1;
+}
+/* navbar.component.css */
+.icons-hidden .menu-collapsed {
+  display: none; /* Hide names when collapsed */
+}
+
+.icons-visible .menu-collapsed {
+  display: inline; /* Show names when expanded */
+}
+.mat-tab-label {
+  color: rgb(235 227 227 / 87%);
+}

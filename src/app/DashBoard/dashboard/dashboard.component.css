@@ -1,0 +1,795 @@
+.main-panel .content {
+     padding: 10px 30px 30px;
+    padding: 5px 25px 0px;
+    min-height: calc(108vh - 135px);
+    margin-top: 4px;
+    width: 100%;
+}
+/* Base styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 15px;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-footer {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.stats i {
+    color: #999;
+}
+
+/* Card categories */
+.card-category {
+    color: #157be9;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Icons styles */
+.icon-big {
+    font-size: 2.5rem;
+    margin: 10px;
+}
+
+.text-warning {
+    color: #fbc658;
+}
+
+.text-success {
+    color: #4caf50;
+}
+
+.text-danger {
+    color: #f44336;
+}
+
+/* Row and column responsiveness */
+.row {
+    margin: 0 -15px;
+}
+
+.col-lg-3,
+.col-md-6,
+.col-sm-6 {
+    padding: 0 15px;
+}
+
+@media (max-width: 992px) {
+    .col-lg-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .col-lg-3, .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Chart styling */
+.card-chart {
+    position: relative;
+}
+
+canvas {
+    max-width: 100%;
+}
+
+.card-chart .card-body {
+    padding: 15px;
+}
+
+/* Custom styling for charts */
+.chart-legend i {
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.chart-legend {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.chart-legend i.fa-circle {
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+/* Styling for chart footers */
+.card-footer {
+    background-color: #f4f6f9;
+    padding: 10px 15px;
+    border-top: none;
+    font-size: 12px;
+}
+
+.card-stats {
+    color: #999;
+    font-size: 14px;
+}
+
+/* Dashboard specifics */
+.CardReport .numbers {
+    text-align: right;
+}
+
+.CardReport .icon-big {
+    text-align: left;
+}
+
+.CardReport .card-category {
+    color: #0d6efd;
+}
+
+.CardReport .card-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+.card-body canvas {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+  }
+  
+
+/* Styles for responsiveness on smaller screens */
+@media (max-width: 576px) {
+    .card-title {
+        font-size: 18px;
+    }
+    
+    .icon-big {
+        font-size: 2rem;
+    }
+
+    .numbers p {
+        font-size: 16px;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+}
+.dashboard-table-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f7f8fc;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dashboard-table-container h2 {
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .dashboard-table th,
+  .dashboard-table td {
+    padding: 12px 20px;
+    text-align: left;
+  }
+  
+  .dashboard-table th {
+    background-color: #4b6584;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
+  }
+  
+  .dashboard-table tbody tr:nth-child(even) {
+    background-color: #f3f4f8;
+  }
+  
+  .dashboard-table tbody tr:hover {
+    background-color: #eaeff5;
+  }
+  
+  .table-icon {
+    margin-right: 8px;
+    color: #4b6584;
+  }
+  
+  .status {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    color: #ffffff;
+  }
+  
+  .status.active {
+    background-color: #4cd137;
+  }
+  
+  .status.inactive {
+    background-color: #ff6b6b;
+  }
+  
+  .status.pending {
+    background-color: #fbc531;
+  }
+  
+  .btn-details {
+    padding: 6px 12px;
+    color: #ffffff;
+    background-color: #4b6584;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-details:hover {
+    background-color: #333a56;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-table-container {
+      padding: 10px;
+    }
+    
+    .dashboard-table th, 
+    .dashboard-table td {
+      padding: 10px;
+      font-size: 0.9em;
+    }
+  
+    .btn-details {
+      font-size: 0.8em;
+    }
+  }
+  .single-dashboard-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .single-dashboard-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #4a4a4a;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+  }
+  
+  .card-section {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 10px;
+  }
+  
+  .card-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #4a90e2;
+  }
+  
+  .section-content p {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+  }
+  
+  .label {
+    font-weight: bold;
+    color: #666;
+  }
+  
+  .value {
+    font-size: 1.1em;
+    color: #333;
+  }
+  
+  @media (max-width: 768px) {
+    .single-dashboard-card {
+      padding: 15px;
+    }
+  
+    .card-section h3 {
+      font-size: 1.1em;
+    }
+  
+    .section-content p {
+      flex-direction: column;
+    }
+  }
+  .card {
+    border-radius: 15px;
+    border: 1px solid #dfe6e9;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .form-label {
+    font-size: 1rem;
+  }
+  
+  .form-select {
+    font-size: 1rem;
+    padding: 0.6rem 2.2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .form-select:hover {
+    border-color: #007bff;
+  }
+  
+  .form-select:focus {
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
+  }
+  
+  .card-footer {
+    padding: 0.75rem 1rem;
+  }
+  
+  .shadow-lg {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  /* Style for the container holding the select fields */
+.d-flex {
+  margin-bottom: 4px;
+}
+
+/* Style for both select fields to make them more attractive */
+.form-select {
+  font-size: 0.875rem; /* Adjust font size for better readability */
+  padding: 0.5rem 2rem; /* Add padding for spacing */
+  border: 1px solid #ced4da; /* Light border color */
+  background-color: #e6ebf1; /* Light background color */
+  transition: all 0.3s ease; /* Smooth transition for hover and focus effects */
+  font-weight: 500;
+}
+
+/* Focused state for select fields */
+.form-select:focus {
+  border-color: #007bff; /* Blue border on focus */
+  background-color: #ffffff; /* White background on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Soft blue shadow on focus */
+}
+
+/* Hover state for select fields */
+.form-select:hover {
+  border-color: #007bff; /* Blue border on hover */
+}
+
+/* Custom style for the text inside the select (align it with the label) */
+.form-select-sm {
+  height: 38px; /* Adjust height */
+  line-height: 1.4;
+}
+
+/* Styling the label for the select fields */
+h5.text-primary {
+  margin-left: 10px; /* Space between select field and label */
+  font-weight: bold; /* Make the label bold */
+  color: #007bff; /* Blue text color for the label */
+  font-size: 1rem; /* Adjust label font size */
+  margin-bottom: 0; /* Remove bottom margin */
+}
+
+/* Style for the wrapper around the select elements */
+.d-flex.align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+/* Optional: Make the year dropdown look similar */
+#yearDropdown {
+  margin-left: 15px;
+}
+
+/* Style for the wrapper of the entire component */
+.d-flex.justify-content-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff; /* Background for the wrapper */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+/* General styling for the header */
+.monthly-report-header {
+  font-size: 1.25rem; /* Base font size */
+  font-weight: bold;
+  color: #343a40; 
+  padding: 0.5rem 1rem; 
+  background-color: #f8f9fa; 
+  border-radius: 0.25rem; 
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+  width: 100%; /* Full width on smaller screens */
+  max-width: 400px; /* Limit width on larger screens */
+  margin-bottom: 20px
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .monthly-report-header {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+    margin: 0 auto; /* Center the header */
+    text-align: center;
+  }
+
+  .d-flex.flex-column {
+    align-items: stretch; /* Align items vertically */
+  }
+
+  .form-select {
+    width: 100%; /* Full width dropdowns on smaller screens */
+    margin-bottom: 1rem; /* Add spacing between dropdowns */
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 576px) {
+  .monthly-report-header {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+.graph-buttons-container {
+  display: flex;
+  justify-content: end;
+}
+
+.graph-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+  background-color: #f8f9fa; /* Light background */
+  border: 2px solid #e0e0e0; /* Subtle border */
+  border-radius: 50%; /* Make the buttons circular */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.graph-button i {
+  font-size: 20px; /* Icon size */
+  color: #495057; /* Neutral icon color */
+  transition: color 0.3s ease;
+}
+
+.graph-button:hover {
+  background-color: #da3e0a; /* Highlight background on hover */
+  border-color: #f86612; /* Darker border on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+}
+
+.graph-button:hover i {
+  color: #ffffff; /* Change icon color on hover */
+}
+
+.graph-button:active {
+  transform: scale(0.95); /* Slightly shrink when clicked */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Dimmer shadow on active */
+}
+@media (max-width: 576px) {
+  .graph-buttons-container {
+    flex-wrap: wrap; /* Allow wrapping of buttons */
+    justify-content: center; /* Center the buttons */
+  }
+
+  .graph-button {
+    margin-bottom: 10px; /* Add space between rows */
+  }
+}
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+/* Header Container */
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #2e557fe3; /* Standard POS ERP blue */
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Graph Buttons */
+.graph-buttons-container {
+  display: flex;
+  /* gap: 10px; */
+}
+
+.graph-button {
+  background-color: #ffffff;
+  border: none;
+  color: #007bff;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.graph-button:hover {
+  background-color: #d34b02e3;
+  color: #ffffff;
+}
+
+.graph-button i {
+  margin-right: 5px;
+}
+
+/* Transaction Type Dropdown and Title */
+.transaction-type-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.transaction-type-title {
+  font-size: 1rem;
+  margin: 0;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Report Title */
+.report-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  flex-grow: 1;
+  color: #ffffff;
+}
+
+/* Year Dropdown */
+.year-selection-container {
+  display: flex;
+  align-items: center;
+}
+
+.form-select {
+  font-size: 0.9rem;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .graph-buttons-container,
+  .transaction-type-container,
+  .year-selection-container {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .report-title {
+    margin-bottom: 15px;
+  }
+}
+/* Card Styles */
+.card-stats {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  padding: 20px;
+  margin: 10px 0;
+}
+
+.card-stats:hover {
+  transform: translateY(-5px);
+}
+
+.card-body {
+  padding: 0px;
+}
+
+/* Icon Section */
+.icon-big {
+  font-size: 40px;
+  color: #f39c12;
+  padding: 15px;
+  background-color: #fbe2a6;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Numbers Section */
+.numbers {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #34495e;
+}
+
+
+.card-title {
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+/* Date Filter Container */
+.date-filter-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2px;
+  flex-direction: column;
+
+}
+
+.date-filter {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.date-filter:last-child {
+  margin-right: 0;
+}
+
+/* Date Filter Labels */
+.filter-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+/* Date Input Fields */
+input[type="date"] {
+  padding: 2px;
+  border-radius: 4px;
+  border: 1px solid #dfe6e9;
+  font-size: 12px;
+  width: 100%;
+  transition: border-color 0.3s;
+}
+
+input[type="date"]:focus {
+  border-color: #f39c12;
+  outline: none;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .card-stats {
+    margin: 10px 0;
+    padding: 15px;
+  }
+
+  .icon-big {
+    font-size: 30px;
+    padding: 8px;
+  }
+
+  .numbers {
+    font-size: 1rem;
+  }
+
+
+  .date-filter {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .date-filter:last-child {
+    margin-bottom: 0;
+  }
+}
+/* Container to hold the date filters */
+.date-filter-container {
+  display: flex;
+  flex-direction: column; /* Stack the filters vertically */
+  gap: 7px; /* Space between the two date filter inputs */
+}
+
+/* Individual date filter input container */
+.date-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px; /* Space between label and input */
+}
+
+/* Label for date inputs */
+.filter-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* Styling for input fields */
+.form-control {
+  width: 100%; /* Make the input fields take full width */
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc; /* Light border */
+  font-size: 14px;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+/* Focus state for inputs */
+.form-control:focus {
+  border-color: #007bff; /* Blue border on focus */
+  outline: none;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 767px) {
+  .date-filter-container {
+    gap: 10px; /* Reduce gap on smaller screens */
+  }
+
+  .form-control {
+    padding: 8px; /* Slightly smaller padding on mobile */
+  }
+}

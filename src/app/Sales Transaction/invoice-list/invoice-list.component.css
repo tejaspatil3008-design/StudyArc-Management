@@ -1,0 +1,423 @@
+.body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+ 
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 10px;
+  }
+ 
+  .header {
+    font-weight: bold;
+    color: #525967;
+    text-align: center;
+    font-size: 19px;
+    margin-top: -9px;
+  }
+ 
+  .table-container {
+    height: 395px;
+    overflow-y: auto;
+  }
+ 
+  thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #c1c9cd;
+    color: rgb(8, 8, 8);
+    font-size: 14px;
+    padding: 8px;
+    text-align: left;
+     border-right: 1px solid #8d8989;
+     border-left: 1px solid #8d8989;
+    /* border-top: 1px solid #8d8989;
+     border-bottom: 1px solid #8d8989; */
+  }
+ 
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1px;
+    border-spacing: 0;
+  }
+ 
+  .table td {
+    padding: 8px;
+    text-align: left;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+ 
+  .table tbody tr {
+    border-bottom: 1px solid #3f3d3d;
+  }
+ 
+  .table tbody td,
+  .table tbody th {
+    border-right: 1px solid #8d8989;
+    border-left: 1px solid #8d8989;
+  }
+ 
+  .table tbody tr:hover {
+    background-color: #f9f9f9;
+  }
+ 
+  label {
+    font-size: 14px;
+    color: #333;
+  }
+ 
+  /* Pagination */
+  .pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px;
+    background-color: #dee2e6;
+    border-top: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+    flex-wrap: wrap;
+  }
+
+  .pagination-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .left-section,
+  .right-section {
+    display: flex;
+    align-items: center;
+  }
+ 
+  .page-input {
+    width: 50px;
+    padding: 5px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: box-shadow 0.3s;
+    margin-right: 5px;
+  }
+ 
+  .page-input:focus {
+    box-shadow: 0 0 5px rgba(0, 149, 230, 0.7);
+    border-color: transparent;
+  }
+ 
+  .go-text {
+    cursor: pointer;
+    color: #0095e6;
+    padding: 5px 10px;
+    font-size: small;
+  }
+ 
+  .go-text:hover {
+    text-decoration: underline;
+  }
+
+  .pagination-button {
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    outline: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    transition: color 0.3s;
+  }
+  
+  .pagination-button:hover {
+    transform: scale(1.1);
+  }
+ 
+  .page-number {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 10px;
+  }
+ 
+  .items-per-page-dropdown,
+  .items-per-page {
+    width: 70px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 5px;
+    font-size: 14px;
+  }
+ 
+  .items-per-page-dropdown:focus,
+  .page-input:focus {
+    box-shadow: 0 0 5px rgba(0, 149, 230, 0.7);
+    border-color: transparent;
+  }
+ 
+  .label {
+    color: #0095e6;
+    font-size: 12px;
+    margin-right: 5px;
+  }
+ 
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .pagination-container {
+      flex-direction: column;
+      align-items: center;
+    }
+ 
+    .left-section,
+    .right-section {
+      margin-bottom: 10px;
+    }
+ 
+    .page-input,
+    .items-per-page {
+      width: 60%;
+      /* Allow inputs to be wider on smaller screens */
+    }
+  }
+
+  .pagination-button:hover {
+    color: #007bff;
+  }
+  
+  .pagination-button.active {
+    font-weight: bold;
+  }
+  .pagination-button img {
+    vertical-align: middle;
+  }  
+
+.full-width {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .filter-section {
+    padding: 5px;
+  }
+}
+
+.table-container {
+  overflow-x: auto; /* Ensures the table is scrollable on small devices */
+}
+
+.table thead th {
+  white-space: nowrap; /* Prevents header from breaking into multiple lines */
+}
+
+.mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 2px 0;
+}
+
+.mat-form-field-wrapper {
+  padding-bottom: 8px;
+}
+
+.filter-card {
+  background-color: #e1e1e1;
+  /* border-radius: 10px; */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 4px;
+  margin-bottom: 20px;
+  max-width: 100%;
+  margin: 2px auto;
+  margin-top: -6px;
+}
+
+/* Styling for filter section inside the card */
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Styling for left side (date filters) */
+.filter-left {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Styling for right side (search and icon) */
+.filter-right {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* Label styling */
+.filter-card label {
+  font-weight: 500;
+  color: #333;
+  display: block;
+  font-size: 14px;
+}
+
+/* Input field styling */
+.filter-card input {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(27 110 127 / 87%);
+  font-size: 13px;
+  width: 157px;
+  box-sizing: border-box;
+}
+
+.filter-card input::placeholder {
+  font-size: 13px;
+  color: #888;
+}
+
+.filter-card input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Styling for export icon */
+.filter-right img {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.filter-right img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .filter-section {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .filter-left input, .filter-right input {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .filter-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .filter-left, .filter-right {
+    width: 100%;
+  }
+
+  .filter-left input, .filter-right input {
+    width: 100%;
+  }
+}
+/* Styling for the filter-left section */
+.filter-left {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Label styling for all filters */
+.filter-left label {
+  font-weight: 500;
+  color: #333;
+  display: block;
+  font-size: 14px;
+}
+
+/* Input field and select dropdown styling */
+.filter-left input, .filter-left select {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #127285;
+  font-size: 13px;
+  width: 157px;
+  box-sizing: border-box;
+}
+
+.filter-left input::placeholder,
+.filter-left select option {
+  font-size: 13px;
+  color: #888;
+}
+
+.filter-left input:focus,
+.filter-left select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Styling for the select dropdown to make it consistent with input fields */
+.filter-left select {
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* Adjust the select dropdown to fit well with other filters */
+.filter-left select option {
+  font-size: 13px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+  .filter-left {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .filter-left input,
+  .filter-left select {
+    width: 100%;
+  }
+}
+
+.import-button {
+  background: linear-gradient(135deg, #0573af, #2b6a8b);
+  color: white;
+  padding: 4px 11px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px; /* Optional: Set a fixed width for consistent button size */
+  margin-top: 1px;
+}
+
+.spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  width: 29px;
+  height: 29px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+

@@ -1,0 +1,46 @@
+
+<div class="sidebar-container" [ngClass]="{'collapsed': isSidebarCollapsed}">
+  <div class="sticky-section">
+    <img src="/assets/ABC.webp" alt="Sidebar Image" class="sidebar-image" />
+    <div class="horizontal-line"></div> 
+  </div>
+
+  <div class="scrollable-section">
+    <mat-nav-list>
+      <mat-list-item class="matList" (click)="viewDashboard()">
+        <mat-icon class="blue-icon">dashboard</mat-icon>
+        <a  routerLinkActive="active-link">Dashboard</a>
+      </mat-list-item>
+      <div class="horizontals-line"></div>
+
+    <mat-list-item class="matList" (click)="viewCustomer(1)">
+      <mat-icon class="blue-icon">person</mat-icon> 
+      <a routerLinkActive="active-link">Customer</a>
+    </mat-list-item>
+    <div class="horizontals-line"></div>
+
+    <mat-list-item class="matList" (click)="viewCustomer(2)" >
+      <mat-icon class="blue-icon">business</mat-icon> 
+      <a  routerLinkActive="active-link">Vendor</a>
+    </mat-list-item>
+    <div class="horizontals-line"></div>
+
+    <mat-list-item class="matList" (click)="viewCustomer(3)" >
+      <mat-icon class="blue-icon">business</mat-icon> 
+      <a  routerLinkActive="active-link">Employee</a>
+    </mat-list-item>
+
+    <div class="horizontals-line"></div>
+    <mat-list-item class="matList"  (click)="viewItemList()">
+      <mat-icon  class="blue-icon">map</mat-icon>
+      <a  routerLinkActive="active-link">Item List</a>
+    </mat-list-item>
+    <div class="horizontals-line"></div>
+
+    <mat-list-item class="matList" (click)="viewEmployee()" >
+      <mat-icon class="blue-icon">business</mat-icon> 
+      <a  routerLinkActive="active-link">Partner</a>
+    </mat-list-item>
+  </mat-nav-list>
+
+</div>

@@ -1,0 +1,91 @@
+<div class="card" style="height: auto;width: auto;">
+  <div class="col-md-12">
+    <div class="header">
+      Invoice List
+    </div>
+    <div class="mb-2" style="background-color: #f3bd6d; height: 3px;margin:0px,0px,10px"></div>
+    <div class="filter-card">
+      <div class="filter-section" style="margin-top: -3px;">
+        <div class="filter-left">
+          <div>
+            <label for="startDate">Start Date</label>
+            <input type="date" placeholder="From Date" [(ngModel)]="startDate" (ngModelChange)="onDateChange()"
+              class="form-control" id="fromDate" style="margin-left: 4px;">
+          </div>
+          <div>
+            <label for="endDate">End Date</label>
+            <input placeholder="To Date" type="date" [(ngModel)]="endDate" (ngModelChange)="onDateChange()"
+              class="form-control" id="endDate">
+          </div>
+        </div>
+        <div class="filter-right" style="margin-top: 20px;">
+
+          <input [(ngModel)]="type" (input)="applySearch()" type="text" id="search" placeholder="Search...">
+          <button *ngIf="!isLoading" class="import-button" (click)="InvoiceImport()" style="white-space: nowrap;">
+            NS Import
+          </button>
+          <span *ngIf="isLoading" class="spinner"></span>
+          <div>
+            <img src="assets/ImportExcelIcon.png" (click)="InvoiceExcelExport()">
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="table-container">
+      <table class="table table-responsive-md" style="margin-top: 0px;">
+        <thead>
+          <th (mousedown)="onMouseDown($event, $event.target)" style="vertical-align: top;">View</th>
+          <th *ngFor="let key of keys?.slice(1)"
+            style="border-right: 1px solid #8d8989; vertical-align: top; text-align: left;"
+            (mousedown)="onMouseDown($event, $event.target)">
+            {{ key }}
+          </th>
+        </thead>
+        <tbody style="font-size: 13px;text-align: start;">
+          <tr *ngFor="let row of results">
+            <td>
+              <a style="color: rgb(29, 135, 248);" type="button" (click)="View(row.ID)">View</a>
+            </td>
+            <td *ngFor="let key of keys?.slice(1)">
+              {{ row[key] }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pagination-container" style="background-color: #dee2e6;">
+      <div class="left-section">
+        <div class="custom-input">
+          <input class="page-input" style="margin-left: 4px;" [style.width.px]="getInputWidth()"
+            [(ngModel)]="enteredPageNo" (input)="updateGoButtonState()" [readonly]="!isEditable"
+            (dblclick)="toggleEditable()" maxlength="3">
+          <span class="go-text" (click)="onGo()" *ngIf="enteredPageNo">
+            {{ goButtonText }}
+          </span>
+        </div>
+      </div>
+      <div class="pagination-center" style="display: flex; justify-content: center; align-items: center;">
+        <button class="pagination-button" (click)="onPrevious()">
+          <img src="assets/left-arrow_143289.png" style="width: 23px; height: 23px;" alt="Previous">
+        </button>
+        <span class="page-number">{{ displayPageNo }} / {{ totalPage == 0 ? '1' : totalPage }}</span>
+        <button class="pagination-button" (click)="onNext()">
+          <img src="assets/right-arrow_143290.png" style="width: 21px; height: 21px;" alt="Next">
+        </button>
+      </div>
+      <div class="right-section">
+        <label style="color: #0095e6;margin-right: 10px;font-size: 12px;">Invoices per page</label>
+        <select class="items-per-page-dropdown" (change)="onInvoicePerPageChange($event)">
+          <option value="10">10</option>
+          <option value="30" selected>30</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+          <option value="150">150</option>
+        </select>
+        <label style="color: #0095e6;margin-right: 10px;font-size: 12px;">Total Records</label>
+        <input class="items-per-page" [(ngModel)]='totalRecord' disabled>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,151 @@
+<div class="container">
+  <div class="row">
+    <!-- Sales Order Card -->
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body">
+          <div class="card-header">
+            <p class="card-category">Total Customers</p>
+            <p class="card-title"></p>
+          </div>
+          <!-- <div class="date-filter-container">
+            <div class="date-filter">
+              <label for="startDate" class="filter-label" >Start Date</label>
+              <input type="date" id="startDate" class="form-control" placeholder="From Date" [(ngModel)]="startDate" (ngModelChange)="onDateChange()" />
+            </div>
+            <div class="date-filter">
+              <label for="endDate" class="filter-label">End Date</label>
+              <input type="date" id="endDate" class="form-control" [(ngModel)]="endDate" (ngModelChange)="onDateChange()" />
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Purchase Order Card -->
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body">
+          <div class="card-header">
+            <p class="card-category">Total Vendors</p>
+            <p class="card-title"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Number of Invoice Card -->
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body">
+          <div class="card-header">
+            <p class="card-category">Total Employees</p>
+            <p class="card-title"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reports Card -->
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body">
+          <div class="card-header">
+            <p class="card-category">Total Items</p>
+            <p class="card-title"></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-12">
+  <div class="card shadow-lg w-100">
+    <div class="card-body">
+      <div class="header-container">
+        <div class="transaction-type-container">
+          <select class="form-select form-select-sm" id="tranTypeDropdown" >
+            <option value="" selected>Select Transaction</option>
+            <option></option> 
+          </select>
+        </div>
+
+        <div class="report-title-container">
+          <div class="report-title">
+            Monthly Transaction Reports
+          </div>
+        </div>
+
+        <div class="graph-buttons-container">
+          <button class="graph-button" (click)="setGraphType('bar')" title="Bar Chart">
+            <i class="fas fa-chart-bar"></i>
+          </button>
+          <button class="graph-button" (click)="setGraphType('line')" title="Line Chart">
+            <i class="fas fa-chart-line"></i>
+          </button>
+          <button class="graph-button" (click)="setGraphType('pie')" title="Pie Chart">
+            <i class="fas fa-chart-pie"></i>
+          </button>
+          <button class="graph-button" (click)="setGraphType('doughnut')" title="Doughnut Chart">
+            <i class="fas fa-circle-notch"></i>
+          </button>
+        </div>
+
+        <div class="year-selection-container">
+          <select class="form-select form-select-sm" id="yearDropdown" >
+            <option selected>2016</option>
+            <option ></option>
+          </select>
+        </div>
+
+      </div>
+      <canvas id="myChartTest"></canvas>
+    </div>
+
+    <div class="card-footer bg-light text-center">
+      <div class="stats text-muted">
+        <i class="fa fa-calendar me-2"></i> Updated Chart for Selected Transaction Type
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="card ">
+      <div class="card-body ">
+        <canvas id="myChartTest"></canvas>
+      </div>
+      <div class="card-footer ">
+        <div class="stats">
+          <i class="fa fa-calendar"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="card card-chart">
+      <div class="card-header">
+      </div>
+      <div class="card-body">
+        <canvas id="myLineChartTest" width="400" height="100"></canvas>
+      </div>
+      <div class="card-footer">
+        <div class="chart-legend">
+          <!-- <i class="fa fa-circle text-info"></i> Tesla Model S -->
+          <!-- <i class="fa fa-circle text-warning"></i> BMW 5 Series -->
+        </div>
+        <hr />
+        <div class="card-stats">
+          <i class="fa fa-check"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

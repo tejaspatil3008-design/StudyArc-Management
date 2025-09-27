@@ -1,0 +1,19 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ClientService } from 'src/app/Services/client.service';
+
+@Component({
+  selector: 'app-view-credit-memo',
+  templateUrl: './view-credit-memo.component.html',
+  styleUrls: ['./view-credit-memo.component.css']
+})
+export class ViewCreditMemoComponent implements OnInit {
+
+  ngOnInit(): void {
+  }
+
+
+}
+
+
+

@@ -1,0 +1,181 @@
+<mat-toolbar color="primary">
+  <button style="margin-left: -13px;" mat-icon-button (click)="onToggleSidenav()">
+    <mat-icon class="blue-icon">reorder</mat-icon>
+  </button>
+
+  <div class="desktop-menu">
+    <button mat-button style="font-weight: bold;"(click)="viewHome()">Home</button>
+
+    <button mat-button [matMenuTriggerFor]="salesTabMenu" style="font-weight: bold;">
+      Sales
+      <mat-icon *ngIf="!isSalesTabMenuOpen">keyboard_arrow_down</mat-icon>
+      <mat-icon *ngIf="isSalesTabMenuOpen">keyboard_arrow_up</mat-icon>
+    </button>
+
+    <mat-menu #salesTabMenu="matMenu" (opened)="isSalesTabMenuOpen = true" (closed)="isSalesTabMenuOpen = false">
+      <button mat-menu-item [matMenuTriggerFor]="salesMenu">
+        Sales
+        <span style="margin-left: 8px;">
+        </span>
+      </button>
+      <button mat-menu-item [matMenuTriggerFor]="salesOrderMenu">
+        Sales Order
+        <span style="margin-left: 8px;">
+        </span>
+      </button>
+      <button mat-menu-item [matMenuTriggerFor]="returnAuthorizationMenu">
+        Return Authorization
+        <span style="margin-left: 20px;">
+        </span>
+      </button>
+      <button mat-menu-item [matMenuTriggerFor]="projectMenu">
+        Project
+        <span style="margin-left: 8px;">
+        </span>
+      </button>
+    </mat-menu>
+
+
+    <mat-menu #salesMenu="matMenu">
+      <button mat-menu-item (click)="InvoiceList()">Invoices List</button>
+      <button mat-menu-item (click)="paymentList()">Payments List</button>
+    </mat-menu>
+
+
+    
+    
+
+    <mat-menu #salesOrderMenu="matMenu">
+      <button mat-menu-item (click)="salesOrder()">Sales Order List</button>
+      <button mat-menu-item (click)="itemfulfill()">Item Fulfillment List</button>
+    </mat-menu>
+
+    <mat-menu #returnAuthorizationMenu="matMenu">
+      <button mat-menu-item (click)="ReturnAuthList()">Return Authorization List</button>
+      <button mat-menu-item (click)="ItemReciptListSO()">Item Receipt List</button>
+      <button mat-menu-item (click)="creditMemoList()">Credit Memo List</button>
+      <button mat-menu-item (click)="custRefundList()">Customer Refund List</button>
+    </mat-menu>
+
+    <mat-menu #projectMenu="matMenu">
+      <button mat-menu-item (click)="projectList()">Project List</button>
+    </mat-menu>
+
+
+
+    <button mat-button [matMenuTriggerFor]="purchaseTabMenu" style="font-weight: bold;">
+      Purchase
+      <mat-icon *ngIf="!isPurchaseTabMenuOpen" >keyboard_arrow_down</mat-icon>
+      <mat-icon *ngIf="isPurchaseTabMenuOpen" >keyboard_arrow_up</mat-icon>
+    </button>
+    <mat-menu #purchaseTabMenu="matMenu" (opened)="isPurchaseTabMenuOpen = true" (closed)="isPurchaseTabMenuOpen = false">
+      <button mat-menu-item [matMenuTriggerFor]="purchaseMenu">Purchase</button>
+      <button mat-menu-item [matMenuTriggerFor]="purchaseRequisitionMenu">Purchase Requisition</button>
+      <button mat-menu-item [matMenuTriggerFor]="vendorReturnAuthorizationMenu" >Vendor Return Authorization   <span style="margin-left: 20px;">
+      </span></button>
+    </mat-menu>
+  
+    <mat-menu #purchaseMenu="matMenu">
+      <button mat-menu-item (click)="purchaseOrderList()">Purchase Order List</button>
+      <button mat-menu-item (click)="POItemReceipt()">Item Receipt List</button>
+      <button mat-menu-item (click)="vendorBill()">Vendor Bill List</button>
+      <button mat-menu-item (click)="billPayment()">Bill Payment List</button>
+    </mat-menu>
+  
+    <mat-menu #purchaseRequisitionMenu="matMenu">
+      <button mat-menu-item (click)="purchaseReqsition()">Purchase Requisition List</button>
+    </mat-menu>
+  
+    <mat-menu #vendorReturnAuthorizationMenu="matMenu">
+      <button mat-menu-item (click)="vendorReturnAuth()">Vendor Return List</button>
+      <button mat-menu-item (click)="itemShipment()">Item Fulfillment List</button>
+      <button mat-menu-item (click)="billCredit()">Bill Credit List</button>
+    </mat-menu>
+
+
+    <button mat-button [matMenuTriggerFor]="financialTabMenu" style="font-weight: bold;">
+      Financial
+      <mat-icon *ngIf="!isPurchaseTabMenuOpen" >keyboard_arrow_down</mat-icon>
+      <mat-icon *ngIf="isPurchaseTabMenuOpen" >keyboard_arrow_up</mat-icon>
+    </button>
+
+    <mat-menu #financialTabMenu="matMenu" (opened)="isFinanceTabMenuOpen = true" (closed)="isFinanceTabMenuOpen = false">
+      <button mat-menu-item [matMenuTriggerFor]="accountingTabMenu">Accounting</button>
+    </mat-menu>
+
+    <mat-menu #accountingTabMenu="matMenu">
+      <button mat-menu-item (click)="journalEntriesList()">Journals Entries</button>
+      <button mat-menu-item (click)="expensesList()"> Expense Reports</button>
+    </mat-menu>
+  
+  </div>
+
+
+
+
+
+  <span class="spacer"></span>
+  <ng-container *ngIf="!isMobileView">
+    <button mat-icon-button>
+      <mat-icon>settings</mat-icon>
+    </button>
+    <button mat-icon-button (click)="toggleLogoutButton()">
+      <mat-icon>logout</mat-icon>
+    </button>
+    <button *ngIf="showLogoutButton" mat-button (click)="onLogout()" style="margin-left: 8px; font-weight: bold;">
+       Logout
+    </button>
+  </ng-container>
+  <div class="mobile-menu">
+    <button mat-icon-button [matMenuTriggerFor]="mobileMenu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #mobileMenu="matMenu">
+      <button mat-menu-item (click)="viewHome()">Home</button>
+  
+      <!-- Sales Section -->
+      <button mat-menu-item [matMenuTriggerFor]="mobileSalesMenu">
+        Sales
+      </button>
+      <mat-menu #mobileSalesMenu="matMenu">
+        <button mat-menu-item (click)="InvoiceList()">Invoices List</button>
+        <button mat-menu-item (click)="paymentList()">Payments List</button>
+        <button mat-menu-item (click)="salesOrder()">Sales Order List</button>
+        <button mat-menu-item (click)="itemfulfill()">Item Fulfillment List</button>
+        <button mat-menu-item (click)="ReturnAuthList()">Return Authorization List</button>
+        <button mat-menu-item (click)="ItemReciptListSO()">Item Receipt List</button>
+        <button mat-menu-item (click)="creditMemoList()">Credit Memo List</button>
+        <button mat-menu-item (click)="custRefundList()">Customer Refund List</button>
+        <button mat-menu-item (click)="projectList()">Project List</button>
+      </mat-menu>
+  
+      <!-- Purchase Section -->
+      <button mat-menu-item [matMenuTriggerFor]="mobilePurchaseMenu">
+        Purchase
+      </button>
+      <mat-menu #mobilePurchaseMenu="matMenu">
+        <button mat-menu-item (click)="purchaseOrderList()">Purchase Order List</button>
+        <button mat-menu-item (click)="POItemReceipt()">Item Receipt List</button>
+        <button mat-menu-item (click)="vendorBill()">Vendor Bill List</button>
+        <button mat-menu-item (click)="billPayment()">Bill Payment List</button>
+        <button mat-menu-item (click)="purchaseReqsition()">Purchase Requisition List</button>
+        <button mat-menu-item (click)="vendorReturnAuth()">Vendor Return List</button>
+        <button mat-menu-item (click)="itemShipment()">Item Fulfillment List</button>
+        <button mat-menu-item (click)="billCredit()">Bill Credit List</button>
+      </mat-menu>
+  
+      <!-- Financial Section -->
+      <button mat-menu-item [matMenuTriggerFor]="mobileFinancialMenu">
+        Financial
+      </button>
+      <mat-menu #mobileFinancialMenu="matMenu">
+        <button mat-menu-item (click)="journalEntriesList()">Journals Entries</button>
+      </mat-menu>
+  
+      <!-- Settings and Logout -->
+      <button mat-menu-item >Settings</button>
+      <button mat-menu-item >Logout</button>
+    </mat-menu>
+  </div>
+  
+</mat-toolbar>
