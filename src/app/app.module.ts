@@ -17,16 +17,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
 import { VendorViewComponent } from './Master Data/vendor-view/vendor-view.component';
 import { EmployeeViewComponent } from './Master Data/employee-view/employee-view.component';
-import { RouterModule, Routes } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatDialogModule } from '@angular/material/dialog';  // Import the dialog component
-
-import { MatPaginatorModule } from '@angular/material/paginator'; // For mat-paginator
-import { MatCardModule } from '@angular/material/card'; // For mat-card
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field'; // Import this for mat-form-field
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; // ✅ Correct
 import { InterceptorInterceptor } from './Interceptor/interceptor.interceptor';
 import { InvoiceListComponent } from './Sales Transaction/invoice-list/invoice-list.component';
 import { InvoiceViewComponent } from './Sales Transaction/invoice-view/invoice-view.component';
@@ -75,7 +73,7 @@ import { JournalListsComponent } from './Financial/journal-lists/journal-lists.c
 import { JournalViewComponent } from './Financial/journal-view/journal-view.component';
 import { ExpenseListComponent } from './Financial/expense-list/expense-list.component';
 import { ExpenseViewComponent } from './Financial/expense-view/expense-view.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+// ❌ REMOVE HttpClientTestingModule import
 
 @NgModule({
   declarations: [
@@ -113,18 +111,16 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
     ItemReciptListComponent,
     VendorBillListComponent,
     ViewVendorBillComponent,
-    ItemReciptListComponent,
     PurchaseOrderListComponent,
     PurchaseOrderViewComponent,
     ItemReceiptPOListComponent,
     ItemReceiptPOViewComponent,
-    ItemShipmentListComponent,
-    ItemShipmentViewComponent,
     BillCreditListComponent,
     ViewBillCreditComponent,
     VendorReturnListComponent,
     VendorReturnViewComponent,
     ItemShipmentListComponent,
+    ItemShipmentViewComponent,
     BillPaymentComponent,
     BillPaymentViewComponent,
     JournalListsComponent,
@@ -136,36 +132,31 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule, // ✅ Keep only one ReactiveFormsModule
     BrowserAnimationsModule,
+    
+    // Material Modules (remove duplicates)
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatIconModule,
     MatTabsModule,
     MatMenuModule,
     MatPaginatorModule,
     MatCardModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatPaginatorModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatDialogModule,
-    MatNativeDateModule,
-    MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-
+    MatNativeDateModule,
     MatDialogModule,
     MatExpansionModule,
-    HttpClientTestingModule
-
+    
+    // HTTP Modules
+    HttpClientModule, // ✅ This is the correct one for production
+    
+    // ❌ REMOVE HttpClientTestingModule from here
   ],
   providers: [
     {
